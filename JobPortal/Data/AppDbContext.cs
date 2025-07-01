@@ -1,4 +1,5 @@
-﻿using JobPortal.Models;
+﻿using DevSpot.Models;
+using JobPortal.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -22,6 +23,8 @@ namespace JobPortal.Data
                 }
             }
         }
+        public DbSet<JobModel> Jobs { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
