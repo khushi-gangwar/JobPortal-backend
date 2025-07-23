@@ -24,7 +24,7 @@ namespace JobPortal.Data
             }
         }
         public DbSet<JobModel> Jobs { get; set; }
-
+        public DbSet<JobApplicationModel> JobApplications { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

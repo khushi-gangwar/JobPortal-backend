@@ -63,6 +63,7 @@ namespace JobPortal.Extensions
             services.AddFluentValidationAutoValidation();
 
             services.AddSingleton<IJwtService, JwtService>();
+           
             return services;
         }
     }

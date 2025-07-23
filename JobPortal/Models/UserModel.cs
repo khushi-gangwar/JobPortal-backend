@@ -7,6 +7,7 @@ namespace JobPortal.Models
 
         public string? Role { get; set; }
         public bool? IsActive { get; set; }
+        public ICollection<JobApplicationModel>? JobApplications { get; set; }
     }
 }
     

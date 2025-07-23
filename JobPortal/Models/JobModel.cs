@@ -1,4 +1,5 @@
 ﻿
+using JobPortal.Models;
 using NUlid;
 
 namespace DevSpot.Models
@@ -18,5 +19,6 @@ namespace DevSpot.Models
         public DateTime UpdatedAt { get; set; }
         public bool IsPublished { get; set; }
         public string? PostedBY { get; set; }
+        public ICollection<JobApplicationModel> Applications { get; set; } 
     }
 }
