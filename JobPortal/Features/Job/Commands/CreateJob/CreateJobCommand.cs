@@ -1,12 +1,13 @@
 ﻿using DevSpot.Models;
+using JobPortal.DTO;
 using MediatR;
 
 namespace JobPortal.Features.Job.Commands.CreateJob
 {
     public class CreateJobCommand:IRequest<ApiResponseModel>
     {
-        public JobModel JobModel { get; set; }
-        public CreateJobCommand(JobModel jobModel)
+        public CreateJobDto JobModel { get; set; }
+        public CreateJobCommand(CreateJobDto jobModel)
         {
             JobModel = jobModel;
         }

@@ -19,6 +19,7 @@ namespace DevSpot.Models
         public DateTime UpdatedAt { get; set; }
         public bool IsPublished { get; set; }
         public string? PostedBY { get; set; }
-        public ICollection<JobApplicationModel> Applications { get; set; } 
+        public bool IsActive { get; set; } = true;
+        public  ICollection<JobApplicationModel> Applications { get; set; } 
     }
 }

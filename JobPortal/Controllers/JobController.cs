@@ -1,13 +1,20 @@
-﻿using JobPortal.Features.Job.Commands.CreateJob;
+﻿using DevSpot.Models;
+using JobPortal.DTO;
+using JobPortal.Features.Job.Commands.CreateJob;
 using JobPortal.Features.Job.Commands.DeleteJob;
+using JobPortal.Features.Job.Commands.UpdateJob;
 using JobPortal.Features.Job.Query.GetJob;
+using JobPortal.Models;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Mysqlx.Crud;
 using System.Net;
 
 namespace JobPortal.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class JobController : ControllerBase
@@ -44,6 +51,14 @@ namespace JobPortal.Controllers
         public async Task<IActionResult> DeleteJob(string id)
         {
             var response = await _mediator.Send(new DeleteJobCommand(id));
+            if (response.Status == (int)HttpStatusCode.NotFound)
+                return NotFound(response);
+            return Ok(response);
+        }
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateJob(string id,[FromBody] UpdateJobDto job)
+        {
+            var response = await _mediator.Send(new UpdateJobCommand(job,id));
             if (response.Status == (int)HttpStatusCode.NotFound)
                 return NotFound(response);
             return Ok(response);

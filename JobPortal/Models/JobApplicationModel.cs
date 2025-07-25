@@ -15,7 +15,7 @@ namespace JobPortal.Models
        
 
         // Navigation properties can be added if needed
-        public  JobModel Job { get; set; }
+        public virtual JobModel Job { get; set; }
          public virtual UserModel User { get; set; }
     }
 }

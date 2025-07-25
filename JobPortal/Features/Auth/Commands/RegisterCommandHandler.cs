@@ -47,10 +47,12 @@ namespace JobPortal.Features.Auth.Commands
                             status = 200
                         };
                     }
+
                 }
                 return  new AuthResponse
                 {
-                   
+                    
+                    status = 500
                 };
             }
             catch (Exception ex)
